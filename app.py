@@ -1,5 +1,5 @@
 # streamlit_app.py
-import streamlit as st
+from PcaBiasCalculator import PcaBiasCalculator
 from PrecalculatedBiasCalculator import PrecalculatedBiasCalculator
 from parse_sentence import parse_sentence
 import pandas as pd

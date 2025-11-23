@@ -4,21 +4,25 @@ from os import path
 import numpy as np
 from sklearn.decomposition import PCA
 
-gender_biased_word_pairs = [
-    ("she", "he"),
-    ("her", "his"),
-    ("woman", "man"),
-    ("Mary", "John"),
-    ("herself", "himself"),
-    ("daughter", "son"),
-    ("mother", "father"),
-    ("gal", "guy"),
-    ("girl", "boy"),
-    ("vagina", "penis"),
-    ("feminine", "masculine"),
+political_biased_word_pairs = [
+    ("democrat", "republican"),
+    ("democrats", "republicans"),
+    ("liberal", "conservative"),
+    ("progressive", "conservative"),
+    ("Dems", "GOP"),
+    ("CNN", "Fox"),
+    ("MSNBC", "Fox"),
+    ("socialism", "capitalism"),
+    ("blue", "red"),
+    ("left", "right"),
+    ("Pelosi", "McConnell"),
+    ("investigation", "hoax"),
+    ("immigration", "invasion"),
+    ("programs", "entitlements"),
+    ("refugee", "illegal"),
 ]
 
-gender_neutral_words = [
+political_neutral_words = [
     "is",
     "who",
     "what",
@@ -32,10 +36,10 @@ class PcaBiasCalculator:
     def __init__(
         self,
         model_path=path.join(
-            path.dirname(__file__), "../data/GoogleNews-vectors-negative300.bin"
+            path.dirname(__file__), "data/GoogleNews-vectors-negative300.bin"
         ),
-        biased_word_pairs=gender_biased_word_pairs,
-        neutral_words=gender_neutral_words,
+        biased_word_pairs=political_biased_word_pairs,
+        neutral_words=political_neutral_words,
     ):
         self.model = KeyedVectors.load_word2vec_format(model_path, binary=True)
         self.biased_word_pairs = biased_word_pairs
@@ -71,7 +75,7 @@ class PcaBiasCalculator:
 
     def detect_bias(self, raw_word):
         """
-        Use PCA to find the gender bias vector, and determine bias based on position along the gender vector
+        Use PCA to find the political bias vector, and determine bias based on position along the political vector
         """
         word = re.sub(r"\s+", "_", raw_word)
         if word not in self.model:

@@ -10,7 +10,7 @@ class PrecalculatedBiasCalculator:
     """
 
     def __init__(
-        self, bias_json=path.join(path.dirname(__file__), "../data/biases.json")
+        self, bias_json=path.join(path.dirname(__file__), "data/biases.json")
     ):
         with open(bias_json) as json_file:
             self.biases = json.load(json_file)
