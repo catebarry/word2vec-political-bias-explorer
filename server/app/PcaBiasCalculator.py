@@ -65,7 +65,9 @@ class PcaBiasCalculator:
         self.sign = 1 if right_mean > left_mean else -1
 
     def keys(self):
-        return self.model.vocab.keys()
+        #return self.model.vocab.keys()
+        return self.model.key_to_index.keys()
+
 
     def detect_bias(self, raw_word):
         """
