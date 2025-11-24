@@ -84,7 +84,7 @@ Gordon, J. et al. (2020). Studying Political Bias via Word Embeddings. https://d
 
 Mikolov, T. et al. (2013). Efficient Estimation of Word Representations in Vector Space. https://arxiv.org/abs/1301.3781
 
-Caliskan, A., Bryson, J., & Narayanan, A. (2017). Semantics derived automatically from language corpora contain human-like biases. Science 356(6334): 183–186.
+Caliskan, A., Bryson, J., & Narayanan, A. (2017). Semantics derived automatically from language corpora contain human-like biases. Science 356(6334): 183–186. https://arxiv.org/abs/1608.07187
 
 Badilla, P. et al. (2025). WEFE: A Python Library for Measuring and Mitigating Bias in Word Embeddings. https://www.jmlr.org/papers/v26/22-1133.html
 
