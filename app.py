@@ -272,3 +272,15 @@ zero_rule = alt.Chart(pd.DataFrame({"x":[0]})).mark_rule(color="black").encode(x
 chart = (bars + zero_rule).properties(height=20 * max(3, len(chart_df)), width=800)
 st.altair_chart(chart, use_container_width=True)
 
+st.markdown("---")
+st.subheader("Notes & Limitations")
+st.markdown(
+    """
+    This app is an exploratory prototype that visualizes statistical patterns from
+    historical language data. Because the political axis is derived from a small
+    set of seed word pairs and the 2013 Google News corpus, results should be
+    interpreted as approximate and context-dependent rather than definitive.
+    """
+)
+st.markdown("---")
+st.caption("Questions or feedback? See the [GitHub repo](https://github.com/catebarry/word2vec-political-bias-explorer).")
