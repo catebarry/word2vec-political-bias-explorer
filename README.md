@@ -74,6 +74,19 @@ word2vec-political-bias-explorer/
     └── biases.json                          # Word → bias mapping (upload or create yourself)
 ```
 
+## Limitations & Feedback Disclaimer
+
+This project is a work in progress, exploring how political bias manifests in word embeddings using a simplified left–right axis.
+There are several important limitations to note:
+- Normalization challenges: The PCA axis can skew if one side (e.g., right-leaning words) is closer to neutral in embedding space. I experimented with expanding seed coverage, but the Democratic cluster remained stronger.
+- Seed selection sensitivity: Political ideology is not binary, and the results depend heavily on the chosen word pairs. Different seeds can shift the axis substantially.
+- Dataset bias: The Google News Word2Vec model (2013) reflects language before major political events (e.g., the Trump era) and inherits its own media biases.
+- Scope of the axis: A single PCA component cannot capture multidimensional ideological variation. Future versions could include multiple bias axes (e.g., liberal/conservative, authoritarian/libertarian, social, economic dimensions).
+- Temporal drift: Embeddings trained on more recent or domain-specific corpora (e.g., social media, newer news datasets) may show different associations. Exploring this evolution over time could be insightful.
+
+This repository is shared for educational and research purposes, not as a definitive measure of political bias.
+If you have ideas for better seed pairs, normalization strategies, or other improvements, feel free to fork this project or contact me with suggestions!
+
 ## References
 
 Bolukbasi, T. et al. (2016). Man is to Computer Programmer as Woman is to Homemaker? https://arxiv.org/abs/1607.06520
