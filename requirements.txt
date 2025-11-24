@@ -7,3 +7,6 @@ flask>=3.0
 pandas>=2.0
 plotly>=5.15
 matplotlib>=3.7
+
+# install the spaCy English model directly (must match your spaCy major version)
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.6.0/en_core_web_md-3.6.0-py3-none-any.whl

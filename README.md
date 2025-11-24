@@ -22,7 +22,6 @@ cd word2vec-political-bias-explorer
 python3 -m venv .venv
 source .venv/bin/activate       # Windows: .venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python -m spacy download en_core_web_md
 ```
 
 ### Download the precomputed bias file
