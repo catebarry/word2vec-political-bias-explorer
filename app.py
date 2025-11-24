@@ -1,4 +1,5 @@
-# This file (UI components and debugging) was created with help from ChatGPT 5.0 (see AI Assistance Statement)
+# Many methods and helper functions were adapted from the frontend/react version of the Word2Vec Gender Bias Explorer to work in Streamlit
+# Parts of this file (UI components and debugging) were created with help from ChatGPT 5.0 (see AI Assistance Statement and comments)
 import streamlit as st
 from PrecalculatedBiasCalculator import PrecalculatedBiasCalculator
 from parse_sentence import parse_sentence
@@ -8,8 +9,8 @@ import altair as alt
 from os import path
 
 # --- Constants ---
-MAX_BIAS = 3.0 #0.7
-NEUTRAL_THRESHOLD = 0.1
+MAX_BIAS = 3.0 # value of 0.7 was used in gender bias explorer, but I increased it to 0.7 to better capture political bias range
+NEUTRAL_THRESHOLD = 0.1 # can adjust as needed
 
 # Load calculator with caching
 @st.cache_resource
@@ -34,7 +35,7 @@ def bias_color(bias):
     if bias is None or norm_bias(bias) < NEUTRAL_THRESHOLD:
         return "#CCCCCC"
     
-    base_color = "#3F8EAA" if is_dem_bias(bias) else "#AA3F3F"
+    base_color = "#3F8EAA" if is_dem_bias(bias) else "#AA3F3F"  # democrat = blue, republican = red
     norm = norm_bias(bias)
     
     # Lighten based on bias strength
@@ -58,7 +59,7 @@ def is_neutral(bias):
 
 def is_dem_bias(bias):
     """Check if bias leans Democrat/left."""
-    return not is_neutral(bias) and bias < 0 # CHANGE DEPENDING ON WHICH WAY IS DEM
+    return not is_neutral(bias) and bias < 0 # may need to adjust bias direction based on calculation
 
 def bias_text(bias):
     """Return human-readable bias label."""
@@ -67,7 +68,7 @@ def bias_text(bias):
     
     party = "Democrat" if is_dem_bias(bias) else "Republican"
     norm = norm_bias(bias)
-    
+    # these thresholds can be adjusted (initially chosen based on gender bias explorer)
     if norm < 0.3:
         amount = "slight"
     elif norm < 0.6:
@@ -77,6 +78,7 @@ def bias_text(bias):
     
     return f"{amount} {party} bias"
 
+# this method was created with help from ChatGPT 5.0 November, 2025 (see AI Assistance Statement)
 def arrow_html(bias):
     """Generate HTML for directional arrow."""
     if is_neutral(bias):
@@ -105,6 +107,7 @@ def arrow_html(bias):
 
 
 # --- Streamlit UI ---
+# This section was created with help from ChatGPT 5.0, November (see AI Assistance Statement)
 
 st.set_page_config(page_title="Word2Vec Political Bias Explorer", layout="centered")
 
@@ -207,6 +210,7 @@ The arrows show bias direction and strength, pointing left for Democratic bias a
 )
 
 # --- Curated words continuum ---
+# this section was created with help from ChatGPT 5.0 November, 2025 (see AI Assistance Statement)
 
 DATA = path.join(path.dirname(__file__), "data", "biases.json")
 

@@ -112,3 +112,4 @@ Specific dates/times and prompts used to generate/debug code are listed below, a
 | Nov 12 2025 | 6:30 PM | Streamlit debugging | “Neutral words aren’t near 0 and Streamlit arrows point the wrong way — can you help me debug my bias visualization?” |
 | Nov 18 2025 | 8:45 PM | Continuum visualization | “Create a chart that shows selected words along a Democrat–Republican continuum.” |
 | Nov 20 2025 | 1:30 PM | Compact UI layout | “How can I make the numeric bias values smaller and on one line below the label in Streamlit?” |
+| Nov 24 2025 | 5:00 PM | arrow_html method | "Adjust the style of the arrows so that they are larger and centered around 0."|

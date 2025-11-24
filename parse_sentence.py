@@ -1,6 +1,5 @@
 import spacy
 
-
 nlp = spacy.load("en_core_web_md")
 # avoid doing word splitting and exceptions and crazy stuff, just do a basic whitespace based parse
 nlp.tokenizer.rules = {}

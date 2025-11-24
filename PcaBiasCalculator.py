@@ -62,6 +62,7 @@ class PcaBiasCalculator:
         neutral_mean = np.mean(self.pca.transform(np.array([self.model[word] for word in neutral_words])))
 
         # The following 10 lines were modified with help from ChatGPT 5.0 (see AI Assistance Statement)
+        # the purpose was so that neutral_mean maps to 0, left_mean and right_mean are shifted accordingly to safeguard if biases map to same sign
         shift = neutral_mean
         left_mean -= shift
         right_mean -= shift
@@ -69,6 +70,7 @@ class PcaBiasCalculator:
         self.right_mean = right_mean
         self.neutral_mean = 0.0
 
+        # 2 lines below from original logic
         #self.positive_mean = max(right_mean, left_mean)
         #self.negative_mean = min(right_mean, left_mean)
         self.sign = 1 if right_mean > left_mean else -1
@@ -93,11 +95,12 @@ class PcaBiasCalculator:
         
         word_val = self.pca.transform(np.array([self.model[word]]))[0][0]
 
-        # The following 3 lines were modified with help from ChatGPT 5.0 (see AI Assistance Statement)
+        # The following 3 lines were modified from the gender bias version with help from ChatGPT 5.0 (see AI Assistance Statement)
         # rescaling word value so that the left/right average maps to 1 and -1, and neutral_mean maps to 0
         denom = self.pos_dist if word_val > 0 else self.neg_dist
         raw = word_val / denom
         return float(self.sign * raw)
+        # original logic below, for reference
         '''
         if word_val > self.neutral_mean:
             return self.sign * float(
