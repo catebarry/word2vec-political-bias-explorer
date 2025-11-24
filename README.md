@@ -2,6 +2,10 @@
 
 An interactive Streamlit app for visualizing political associations encoded in pretrained word embeddings from Google News.
 
+## Live Demo
+
+The app is deployed on **Streamlit Cloud** — you can explore it here:  
+[https://word2vec-political-bias-explorer.streamlit.app/](https://word2vec-political-bias-explorer.streamlit.app/)
 
 ## Overview
 
@@ -12,7 +16,7 @@ Prior research shows that various bias dimensions in word embeddings can be iden
 Inspired by [Word2Vec Gender Bias Explorer](https://chanind.github.io/word2vec-gender-bias-explorer), this version adapts the same PCA-based methodology to visualize political bias. It projects words onto a binary axis (Democrat <-> Republican), while acknowledging that real-world bias is more complex than two binary extremes.
 
 
-## Quick Start
+## Quick Start (to run locally)
 
 ### Clone Repo and Install Dependencies
 
