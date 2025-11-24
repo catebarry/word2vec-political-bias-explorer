@@ -61,6 +61,7 @@ class PcaBiasCalculator:
         right_mean = np.mean(self.pca.transform(np.array([pair[1] for pair in biased_pairs])))
         neutral_mean = np.mean(self.pca.transform(np.array([self.model[word] for word in neutral_words])))
 
+        # The following 10 lines were modified with help from ChatGPT 5.0 (see AI Assistance Statement)
         shift = neutral_mean
         left_mean -= shift
         right_mean -= shift
@@ -91,7 +92,8 @@ class PcaBiasCalculator:
             return None
         
         word_val = self.pca.transform(np.array([self.model[word]]))[0][0]
-        
+
+        # The following 3 lines were modified with help from ChatGPT 5.0 (see AI Assistance Statement)
         # rescaling word value so that the left/right average maps to 1 and -1, and neutral_mean maps to 0
         denom = self.pos_dist if word_val > 0 else self.neg_dist
         raw = word_val / denom
