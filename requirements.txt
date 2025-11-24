@@ -1,3 +1,16 @@
+numpy>=1.23,<2.0
+spacy==3.6.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.6.0/en_core_web_md-3.6.0-py3-none-any.whl
+streamlit>=1.30
+
+scikit-learn>=1.2
+gensim>=4.3
+flask>=3.0
+pandas>=2.0
+plotly>=5.15
+matplotlib>=3.7
+
+'''
 numpy>=1.23
 scikit-learn>=1.2
 gensim>=4.3
@@ -10,3 +23,4 @@ matplotlib>=3.7
 
 # install the spaCy English model directly
 https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.6.0/en_core_web_md-3.6.0-py3-none-any.whl
+'''
